@@ -17,6 +17,7 @@ import threading
 import time
 from collections import defaultdict, deque
 
+import httpx
 from google import genai
 from google.genai import errors, types
 
@@ -133,6 +134,14 @@ def generate(contents, config: types.GenerateContentConfig | None = None, model:
                     time.sleep(min(20, 2 ** (attempt + 1)) + random.random())
                     continue
                 break
+            except (httpx.TransportError, OSError) as e:
+                # DNS failure, dropped connection, timeout: the network is down, not the model, so switching
+                # models won't help. Retry briefly, then fail gracefully instead of crashing the conversation.
+                if attempt < retries:
+                    _local.retries += 1
+                    time.sleep(min(10, 2 ** (attempt + 1)) + random.random())
+                    continue
+                raise LLMUnavailable(f"Network error reaching Gemini: {type(e).__name__}: {str(e)[:150]}") from e
         remaining.remove(name)
         if last_error is not None and last_error.code not in (404, 429, *RETRYABLE):
             break
