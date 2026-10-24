@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "echo 'static UI: nothing to install'",
+  "buildCommand": "node scripts/vercel_config.mjs",
+  "outputDirectory": "web",
+  "rewrites": [{ "source": "/static/:path*", "destination": "/:path*" }]
+}

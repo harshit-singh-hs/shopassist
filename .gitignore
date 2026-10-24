@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+# Runtime data
+shopassist.db*
+index/
+# Crawled third-party content: fetched locally with `python -m scripts.fetch_kb`, not redistributed
+knowledge_base/amazon_in/
+knowledge_base/raw/
+# Raw per-run eval dumps (the *_latest.md summaries are kept)
+evals/reports/*.json
+evals/reports/*.jsonl

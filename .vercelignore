@@ -1,0 +1,7 @@
+# Vercel only hosts the static UI: upload just the web/ folder, its build script and the config.
+/*
+!/web
+!/vercel.json
+!/scripts
+/scripts/*
+!/scripts/vercel_config.mjs

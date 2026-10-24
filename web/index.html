@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShopAssist · AI support agent</title>
+  <meta name="description" content="An AI customer-support agent that takes real actions safely, grounded in real help-center policies.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C2441C'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-style='italic' font-size='20' fill='%23FFF8F0' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script>try { var t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("sa-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="#/chat" aria-label="ShopAssist home">Shop<em>Assist</em><span class="dot"></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#/chat" data-route="chat">Chat</a>
+      <a href="#/desk" data-route="desk">Support desk</a>
+      <a href="#/evals" data-route="evals">Evaluation</a>
+      <a href="#/how" data-route="how">How it works</a>
+    </nav>
+    <div class="spacer"></div>
+    <span class="demo-pill">Unofficial demo · synthetic orders</span>
+    <button class="btn ghost icon-btn" id="theme" type="button" aria-label="Toggle light or dark theme"></button>
+  </header>
+  <main id="app"><div class="loading">Loading ShopAssist…</div></main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="/static/config.js"></script>
+  <script src="/static/app.js" type="module"></script>
+</body>
+</html>

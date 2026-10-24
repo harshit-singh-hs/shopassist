@@ -1,0 +1,8 @@
+# Local container run:  docker compose up --build   ->  http://localhost:8000
+services:
+  shopassist:
+    build: .
+    env_file: .env
+    environment:
+      PORT: "8000"
+    ports: ["8000:8000"]

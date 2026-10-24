@@ -1,0 +1,17 @@
+# Render Blueprint (free plan). On render.com: New → Blueprint → pick this GitHub repo → Apply.
+# Render builds the Dockerfile, injects PORT, and asks you for the two secrets below; they are stored by
+# Render, never in the repository. Measured memory use is ~350 MB, inside the free plan's 512 MB.
+services:
+  - type: web
+    name: shopassist
+    runtime: docker
+    plan: free
+    region: singapore          # closest Render region to India; change if you like
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true           # every push to the default branch redeploys
+    envVars:
+      - key: GEMINI_API_KEY    # free key: https://aistudio.google.com/apikey
+        sync: false
+      - key: DEMO_ACCESS_CODE  # share it with interviewers; without it visitors only see the gate
+        sync: false

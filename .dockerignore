@@ -1,0 +1,8 @@
+.env
+.git
+**/__pycache__
+.pytest_cache
+shopassist.db*
+evals/reports/*.jsonl
+evals/reports/*.json
+docs/screenshots

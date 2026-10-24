@@ -1,0 +1,146 @@
+# Retrieval golden set: customer-style questions (paraphrased, casual, sometimes vague), each labeled
+# with the real Amazon.in help page(s) that answer it. A hit = any retrieved chunk from an expected page.
+# Labels were checked against the crawled pages (knowledge_base/amazon_in/).
+
+- q: how long will my refund take if I paid by UPI
+  pages: [amazon-in-refund-policy, about-refunds]
+- q: I paid cash on delivery, where will my refund money go
+  pages: [amazon-in-refund-policy, about-refunds, about-pay-on-delivery]
+- q: product page said non returnable but it came broken, can I still return it
+  pages: [amazon-in-returns-policy, damaged-or-defective-item]
+- q: what does 10 day free returns and exchange mean
+  pages: [amazon-in-returns-policy]
+- q: I got a totally different item from what I ordered
+  pages: [wrong-product-delivered, damaged-or-defective-item]
+- q: app says package delivered but I never got it
+  pages: [order-shows-as-delivered-but-not-received-frequently-asked-questions]
+- q: how do I book a pickup for my return
+  pages: [how-to-schedule-a-return, return-pick-up-and-self-ship-guidelines]
+- q: delivery guy never came to collect my return
+  pages: [return-pick-up-issues]
+- q: where can I see if my refund was processed
+  pages: [check-status-of-your-refund]
+- q: can I still cancel after the order is shipped
+  pages: [cancel-items-and-orders]
+- q: my order is late, it was supposed to come yesterday
+  pages: [shipment-is-late, tracking-your-package]
+- q: why is the delivery person asking me for an OTP
+  pages: [secure-delivery-with-a-one-time-password]
+- q: which courier companies deliver my orders
+  pages: [our-courier-partners]
+- q: how much do you charge for delivery
+  pages: [shipping-speeds-and-charges, general-shipping-information]
+- q: is same day delivery available in my city
+  pages: [same-day-and-two-day-delivery-frequently-asked-questions]
+- q: what payment options can I use
+  pages: [accepted-payment-methods]
+- q: is there a maximum order value for pay on delivery
+  pages: [about-pay-on-delivery]
+- q: is there a processing fee if I pay with EMI
+  pages: [easy-monthly-installments-emi-frequently-asked-questions]
+- q: money got debited but the order failed
+  pages: [payment-issues, resolve-a-declined-payment]
+- q: my card keeps getting declined at checkout
+  pages: [resolve-a-declined-payment]
+- q: do gift cards expire
+  pages: [amazon-pay-gift-cards]
+- q: what do I get with prime
+  pages: [amazon-prime-membership-benefits]
+- q: how much does a prime membership cost
+  pages: [the-amazon-prime-membership-fee]
+- q: do prime members get free delivery
+  pages: [amazon-prime-shipping-benefits, amazon-prime-membership-benefits]
+- q: forgot my password how do I reset it
+  pages: [reset-your-password]
+- q: how to turn on two step verification
+  pages: [what-is-two-step-verification]
+- q: someone called saying they are from amazon and asked for my OTP
+  pages: [security-and-privacy, customer-service-frequently-asked-questions]
+- q: how do I claim warranty for my phone
+  pages: [frequently-asked-questions-about-warranty, amazon-in-service-centre-replacement-policy-faq]
+- q: what is service centre replacement
+  pages: [amazon-in-service-centre-replacement-policy-faq, amazon-in-returns-policy]
+- q: can I exchange my old phone when buying a new one
+  pages: [about-exchanges]
+- q: how do I return something I received as a gift
+  pages: [return-a-gift]
+- q: the seller isn't accepting my return
+  pages: [return-orders-placed-with-a-third-party-marketplace-seller, request-an-a-to-z-guarantee-refund]
+- q: how do I file an a-to-z guarantee claim
+  pages: [request-an-a-to-z-guarantee-refund]
+- q: the product I received is past its expiry date
+  pages: [product-expiry]
+- q: package went back because nobody was home
+  pages: [undeliverable-packages]
+- q: will I get the shipping charges back if I return the item
+  pages: [amazon-in-refund-policy]
+- q: I bought it on EMI, how does the refund work
+  pages: [amazon-in-refund-policy, easy-monthly-installments-emi-frequently-asked-questions]
+- q: can I get a replacement instead of my money back
+  pages: [amazon-in-replacement-policy, returns-and-replacements-faq]
+- q: which items cannot be returned
+  pages: [amazon-in-returns-policy, returns-and-replacements-faq]
+- q: how can I contact customer care
+  pages: [support-options-and-customer-service, customer-service-frequently-asked-questions]
+- q: the laptop I bought is defective, what are my options
+  pages: [damaged-or-defective-item, amazon-in-returns-policy]
+- q: some accessories were missing from the box
+  pages: [damaged-or-defective-item, amazon-in-replacement-policy, amazon-in-returns-policy]
+- q: there is a charge on my account I don't recognise
+  pages: [customer-service-frequently-asked-questions]
+- q: can I change the delivery address after placing the order
+  pages: [ordering-with-amazon-faq, shipping-speeds-and-charges]
+- q: refund is taking too long, still not received
+  pages: [check-status-of-your-refund, amazon-in-refund-policy, about-refunds]
+
+# ---- added to reduce noise (45 -> 70) and to give BM25 a fair test: many use exact terms ----
+- q: what is NEFT refund for cash on delivery orders
+  pages: [amazon-in-refund-policy, about-refunds]
+- q: where do I find the RRN for my refund
+  pages: [amazon-in-refund-policy, check-status-of-your-refund, about-refunds]
+- q: I bought it with Amazon Pay Later and returned it, what happens to the money
+  pages: [amazon-in-refund-policy, about-refunds]
+- q: what is prime lite
+  pages: [amazon-prime-membership-benefits, the-amazon-prime-membership-fee]
+- q: do I have to ship the return myself
+  pages: [return-pick-up-and-self-ship-guidelines, return-pick-up-issues]
+- q: is there a return processing fee
+  pages: [amazon-in-returns-policy]
+- q: can a technician come home to check my TV
+  pages: [amazon-in-returns-policy, amazon-in-service-centre-replacement-policy-faq]
+- q: what does inspect and buy mean
+  pages: [amazon-in-returns-policy]
+- q: I live outside India, can I return my order
+  pages: [amazon-in-returns-policy, amazon-in-refund-policy]
+- q: are gift wrap charges refunded when I return
+  pages: [amazon-in-refund-policy]
+- q: my refund came as a cheque, in which cities does it clear locally
+  pages: [amazon-in-refund-policy]
+- q: do I need the MRP tag to return clothes
+  pages: [amazon-in-returns-policy, return-pick-up-and-self-ship-guidelines]
+- q: is prime video included in prime
+  pages: [amazon-prime-membership-benefits]
+- q: what is no cost emi
+  pages: [easy-monthly-installments-emi-frequently-asked-questions]
+- q: my account got blocked for too many returns
+  pages: [amazon-in-returns-policy]
+- q: where do I add my bank account for a cash on delivery refund
+  pages: [amazon-in-refund-policy, about-refunds]
+- q: can I return a kindle ebook I bought by mistake
+  pages: [amazon-in-returns-policy]
+- q: do you accept rupay cards
+  pages: [accepted-payment-methods]
+- q: the box was crushed and the item inside is damaged
+  pages: [damaged-or-defective-item, amazon-in-returns-policy]
+- q: what happens if the delivery fails after multiple attempts
+  pages: [undeliverable-packages, shipment-is-late]
+- q: when should I share my delivery OTP
+  pages: [secure-delivery-with-a-one-time-password]
+- q: will I get a refund for an item sold by a third-party seller
+  pages: [return-orders-placed-with-a-third-party-marketplace-seller, amazon-in-refund-policy, request-an-a-to-z-guarantee-refund]
+- q: should I delete my personal data before returning my phone
+  pages: [amazon-in-returns-policy]
+- q: EMI is still being charged after I returned the product
+  pages: [amazon-in-refund-policy, easy-monthly-installments-emi-frequently-asked-questions]
+- q: what details from the invoice do I need for a warranty claim
+  pages: [frequently-asked-questions-about-warranty]
