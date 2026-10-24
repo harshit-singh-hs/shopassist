@@ -26,22 +26,22 @@ Git opens a browser window to sign in to GitHub the first time. What gets pushed
 
 **2. Create the service from the blueprint.** On render.com (sign in with GitHub), go to **New → Blueprint**, pick the repository and click **Apply**. Render reads `render.yaml`, which sets up a Docker web service on the free plan in Singapore, with the health check on `/health`.
 
-**3. Enter the two secrets when Render asks:**
-- `GEMINI_API_KEY`: your key from https://aistudio.google.com/apikey
-- `DEMO_ACCESS_CODE`: any code, for example `interview-2026`. Visitors must enter it.
+**3. Enter the secret when Render asks:** `GEMINI_API_KEY`, your key from https://aistudio.google.com/apikey.
 
-The access code matters: a public demo on a free Gemini key would otherwise be drained by random visitors, since the free tier allows about 100 LLM requests a day across the fallback chain.
+The demo is **open**, so anyone with the link can chat; that's best for a link on a resume. The free Gemini tier allows about 100 LLM requests a day (roughly 35–40 chat turns), so the blueprint sets `DEMO_DAILY_TURN_CAP=40`. When the cap is reached, visitors see a polite "daily limit reached" message instead of failures.
 
-**4. Wait for the first build** (about 10 minutes). It installs dependencies, crawls the 43 help pages, downloads the embedding model and builds the index. Then open `https://shopassist.onrender.com` (or whatever URL Render shows) and share the link and the access code with your interviewer.
+**To make it private later:** in Render go to *Environment → Add* and set `DEMO_ACCESS_CODE` to any code. The service redeploys, and visitors then have to enter the code.
+
+**4. Wait for the first build** (about 10 minutes). It installs dependencies, crawls the 43 help pages, downloads the embedding model and builds the index. Then open `https://shopassist.onrender.com` (or whatever URL Render shows) and share the link.
 
 Every `git push` to `main` redeploys automatically.
 
 ### What visitors get
-- **An access-code gate:** without the code, only the gate page loads.
+- **No sign-up and no code:** the demo opens straight into the chat. An optional access-code gate exists if you set `DEMO_ACCESS_CODE`.
 - **Abuse limits:**
   - 10 messages per minute per IP
   - 20 turns per conversation
-  - 150 turns per day for the whole demo
+  - a daily turn cap for the whole demo (40 on Render, matching the free Gemini quota)
 
   These are configurable with `DEMO_IP_RPM`, `DEMO_TURNS_PER_CONVERSATION` and `DEMO_DAILY_TURN_CAP`.
 - **Fresh demo data:** it's generated at start-up and refreshed daily, because dates are relative to "today". The support desk also has a *Reset demo data* button. On the free plan, data also resets whenever the service goes to sleep, which is fine for a demo.

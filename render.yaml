@@ -1,6 +1,6 @@
 # Render Blueprint (free plan). On render.com: New → Blueprint → pick this GitHub repo → Apply.
-# Render builds the Dockerfile, injects PORT, and asks you for the two secrets below; they are stored by
-# Render, never in the repository. Measured memory use is ~350 MB, inside the free plan's 512 MB.
+# Render builds the Dockerfile, injects PORT, and asks you for the secret below; it is stored by Render,
+# never in the repository. Measured memory use is ~350 MB, inside the free plan's 512 MB.
 services:
   - type: web
     name: shopassist
@@ -13,5 +13,8 @@ services:
     envVars:
       - key: GEMINI_API_KEY    # free key: https://aistudio.google.com/apikey
         sync: false
-      - key: DEMO_ACCESS_CODE  # share it with interviewers; without it visitors only see the gate
-        sync: false
+      # Open demo (no access code). The free Gemini tier allows ~100 requests/day (~35-40 chat turns), so the
+      # daily cap below makes visitors see a polite "daily limit reached" message instead of failures.
+      # To make the demo private later, add DEMO_ACCESS_CODE in the Render dashboard; no code change needed.
+      - key: DEMO_DAILY_TURN_CAP
+        value: "40"
