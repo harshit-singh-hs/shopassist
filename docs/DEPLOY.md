@@ -32,7 +32,9 @@ The demo is **open**, so anyone with the link can chat; that's best for a link o
 
 **To make it private later:** in Render go to *Environment → Add* and set `DEMO_ACCESS_CODE` to any code. The service redeploys, and visitors then have to enter the code.
 
-**4. Wait for the first build** (about 10 minutes). It installs dependencies, crawls the 43 help pages, downloads the embedding model and builds the index. Then open `https://shopassist.onrender.com` (or whatever URL Render shows) and share the link.
+**4. Wait for the first build** (about 10 minutes). It installs dependencies, crawls the 43 help pages, downloads the embedding model and builds the index. Then open the URL Render shows on the service page and share it. Render adds a random suffix when the name is taken; this project's demo is at `https://shopassist-elfr.onrender.com`.
+
+> **Existing service from the first commit?** That blueprint asked for `DEMO_ACCESS_CODE`. Later blueprint syncs don't delete a variable that's already set, so to open the demo, delete it under *Environment* and redeploy.
 
 Every `git push` to `main` redeploys automatically.
 
@@ -89,7 +91,7 @@ Going fully serverless would mean moving sessions and data into Postgres or Redi
 
 What works is **the UI on Vercel and the API on Render**:
 1. In Render's dashboard, add the environment variable `CORS_ORIGINS = https://<your-project>.vercel.app` (it needs `https://` and no trailing slash).
-2. On Vercel, import the repository, choose Framework **Other**, and set `SHOPASSIST_API = https://shopassist.onrender.com`. `vercel.json` uploads only `web/`, and the build fails if `SHOPASSIST_API` is missing.
+2. On Vercel, import the repository, choose Framework **Other**, and set `SHOPASSIST_API` to your Render URL (e.g. `https://shopassist-elfr.onrender.com`). `vercel.json` uploads only `web/`, and the build fails if `SHOPASSIST_API` is missing.
 
 ## Running the container locally
 ```bash

@@ -4,6 +4,8 @@ ShopAssist is an agentic customer-support assistant for an e-commerce store. It 
 
 The core design rule: **the LLM proposes, the code decides.** Business rules, data access and action confirmation are enforced in code, so even a jailbroken model can't issue an out-of-policy refund or read another customer's order.
 
+**Live demo: [shopassist-elfr.onrender.com](https://shopassist-elfr.onrender.com)**. No sign-up: pick a demo customer and chat. It runs on Render's free plan, so the first visit after a quiet spell takes 1–2 minutes to wake up, and the free Gemini quota caps the demo at about 40 chat turns a day.
+
 > Unofficial portfolio project, not affiliated with Amazon. The knowledge base is fetched from Amazon.in's public help pages for a non-commercial demo and is not redistributed. Customers and orders are synthetic.
 
 ---
